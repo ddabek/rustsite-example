@@ -44,4 +44,4 @@ node index.js
 ```
 
 
-Now naivate in a browser to "http://localhost:8000" and experience the rust.
+#Now navigate in a browser to "http://localhost:8000" and experience the rust.
