@@ -1,0 +1,15 @@
+[package]
+name = "rustserver"
+version = "0.1.0"
+authors = ["ddabek <xordaniel@gmail.com>"]
+
+[[bin]]
+name = "rustyserver"
+path = "src/main.rs"
+
+[dependencies]
+rustc-serialize = "0.3.18"
+hyper = "0.6.16"
+iron = "0.4.0"
+rand = "0.3.14"
+router = "0.2.0"
