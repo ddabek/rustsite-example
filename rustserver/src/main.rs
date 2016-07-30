@@ -26,7 +26,6 @@ struct FullName {
 }
 
 impl FullName {
-	///forms a new PollRound object with 0 or empty parameters
 	pub fn new() -> FullName {
 		FullName {
 			first: String::new(),
@@ -48,7 +47,7 @@ fn main() {
 	router.post("/send_name", move |r: &mut Request| receive_name(r, &mut names_clone1.lock().unwrap()));
 	router.get("/get_names", move |r: &mut Request| get_names(r, &names_clone2.lock().unwrap()));
 
-	///post a proposal to the server
+	///post a name to the server
 	fn receive_name(request: &mut Request, names_store: &mut Vec<FullName>) -> IronResult<Response> {
 		let mut payload = String::new();
 		request.body.read_to_string(&mut payload).unwrap();
@@ -65,7 +64,8 @@ fn main() {
 		println!("OK");
 		Ok(response)
 	}
-
+	
+	///get a list of names from the server
 	fn get_names(_: &mut Request, names_list: &Vec<FullName>) -> IronResult<Response> {
 		let payload = json::encode(names_list).unwrap();
 		println!("data: {:?}", &payload);
